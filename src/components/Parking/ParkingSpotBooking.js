@@ -20,7 +20,7 @@ const ParkingSpotBooking = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom style={{margin:20}}>
         Parking Spot Booking
       </Typography>
       <ParkingSpotList spots={spots} onBookSpot={handleBookSpot} />
