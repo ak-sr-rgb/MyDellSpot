@@ -7,8 +7,12 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import {
+  useNavigate
+} from "react-router-dom";
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <Box
       id="hero"
@@ -82,13 +86,16 @@ export default function Hero() {
                 'aria-label': 'Enter your email address',
               }}
             />
-            <Button variant="contained" color="success">
+            <Button variant="contained" color="success" onClick={() =>
+                 navigate("/book")}>
               Book now
             </Button>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={() =>
+                 navigate("/register")}>
               Register Vehicle
             </Button>
-            <Button variant="contained" color="warning">
+            <Button variant="contained" color="warning" onClick={() =>
+                 navigate("/stats")}>
               Statistics
             </Button>
           </Stack>
