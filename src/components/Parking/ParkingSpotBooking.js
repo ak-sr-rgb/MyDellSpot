@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import ParkingSpotList from './ParkingSpotList';
 
 const ParkingSpotBooking = () => {

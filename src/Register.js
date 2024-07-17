@@ -3,23 +3,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import LocalParkingIcon from '@mui/icons-material/DirectionsCar';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { FormControl, InputLabel, MenuItem, Select, FormHelperText } from '@mui/material';
+import {
+  useNavigate
+} from "react-router-dom";
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+      {'Copyright © Dell Tech Facilities '}
+      
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -31,6 +30,8 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
+  const [vehicleType, setVehicleType] = React.useState("")
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,6 +39,10 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const handleChange = (event) => {
+    setVehicleType(event.target.value);
   };
 
   return (
@@ -53,10 +58,11 @@ export default function SignIn() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LocalParkingIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Vehicle Registration
+           
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -67,41 +73,60 @@ export default function SignIn() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              helperText="Provide a valid email address for communication purposes."
               autoFocus
+            />
+            <TextField
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Phone number"
+              helperText="Provide a valid phone number for communication purposes."
+              autoComplete="current-password"
             />
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
-              label="Password"
-              type="password"
+              label="Vehicle Number"
               id="password"
+              helperText="Ensure you have your VIN (Vehicle Identification Number)."
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            <FormControl fullWidth style={{ marginTop: 15 }}>
+              <InputLabel id="vehicle-type-label">Vehicle Type</InputLabel>
+              <Select
+                labelId="vehicle-type-label"
+                value={vehicleType}
+                label="Vehicle Type"
+                onChange={handleChange}
+              >
+                <MenuItem value="car">Car</MenuItem>
+                <MenuItem value="bike">Bike</MenuItem>
+              </Select>
+              <FormHelperText>Select the type of vehicle you are registering.</FormHelperText>
+            </FormControl>
             <Button
               type="submit"
               fullWidth
               variant="contained"
+              color="warning"
+              onClick={() =>
+                navigate("/")}
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Go Back
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Register
+              </Button>
             </Grid>
           </Box>
         </Box>

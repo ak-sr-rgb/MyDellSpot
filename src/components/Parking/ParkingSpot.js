@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Button } from '@mui/material';
+import { Card, Typography, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
