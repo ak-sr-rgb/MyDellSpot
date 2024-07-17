@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Button } from '@mui/material';
+import { Container, Typography, Grid } from '@mui/material';
 import ParkingSpotList from './ParkingSpotList';
 
 const ParkingSpotBooking = () => {
   const [spots, setSpots] = useState([
-    { id: 1, booked: false },
-    { id: 2, booked: false },
-    { id: 3, booked: false },
-    { id: 4, booked: false },
+    { id: 1, booked: false, type: 'car' },
+    { id: 2, booked: false, type: 'car' },
+    { id: 3, booked: false, type: 'bike' },
+    { id: 4, booked: false, type: 'bike' },
   ]);
 
   const handleBookSpot = (id) => {
@@ -20,7 +20,7 @@ const ParkingSpotBooking = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom style={{margin:20}}>
+      <Typography variant="h4" gutterBottom>
         Parking Spot Booking
       </Typography>
       <ParkingSpotList spots={spots} onBookSpot={handleBookSpot} />
