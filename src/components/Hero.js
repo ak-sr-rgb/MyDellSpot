@@ -27,8 +27,8 @@ export default function Hero() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
+          pt: { xs: 14, sm: 20 }
+         
         }}
       >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: '100%', sm: '70%' } }}>
@@ -82,8 +82,14 @@ export default function Hero() {
                 'aria-label': 'Enter your email address',
               }}
             />
+            <Button variant="contained" color="success">
+              Book now
+            </Button>
             <Button variant="contained" color="primary">
-              Start now
+              Register Vehicle
+            </Button>
+            <Button variant="contained" color="warning">
+              Statistics
             </Button>
           </Stack>
           <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
@@ -94,7 +100,7 @@ export default function Hero() {
             .
           </Typography>
         </Stack>
-        <Box
+        {/* <Box
           id="image"
           sx={(theme) => ({
             mt: { xs: 8, sm: 10 },
@@ -117,7 +123,7 @@ export default function Hero() {
                 ? `0 0 12px 8px ${alpha('#9CCCFC', 0.2)}`
                 : `0 0 24px 12px ${alpha('#033363', 0.2)}`,
           })}
-        />
+        /> */}
       </Container>
     </Box>
   );
