@@ -157,7 +157,7 @@ export default function Footer() {
           </Link>
         </Box>
       </Box>
-      <Box
+      {/* <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -205,7 +205,7 @@ export default function Footer() {
             <LinkedInIcon />
           </IconButton>
         </Stack>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
